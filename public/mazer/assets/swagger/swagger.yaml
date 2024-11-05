@@ -1,0 +1,1870 @@
+openapi: 3.0.0
+info:
+  title: Whatsapp - Gateway
+  description: Simple Whatsapp Gateway App
+  version: 1.0.0-oas3
+servers:
+- url: http://localhost:8004
+tags:
+- name: GROUP
+  description: |-
+    Example Group with **@g.us** or symbol **\-**
+
+    "target" : "62813xxx-16179xxx"
+
+    **You can use this option for all messaging endpoints**
+- name: PRIVATE
+  description: |-
+    Example Private with **@s.whatsapp.net** or without symbol **\-**
+
+    "target" : "62813xxx"
+
+    **You can use this option for all messaging endpoints**
+paths:
+  /api/sendtext:
+    post:
+      tags:
+      - PRIVATE
+      summary: Send Text
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sessions: "{{session}}"
+                target: "6283840398931"
+                message: Send Text
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/groups:
+    get:
+      tags:
+      - GROUP
+      summary: GET Group
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Powered-By:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              style: simple
+              explode: false
+              schema:
+                type: integer
+                example: 35694
+            ETag:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: W/"8b6e-oE4mEsoW/BL54gGBrl1C/h54y6E"
+            Set-Cookie:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: "connect.sid=s%3AOncF3oo8zI-QpLrCg0V-QsN2tCifTK6k.52fMoPVl4go5RFGzugbmtkwiALfPZSCkrFK7NvVhrn0;\
+                  \ Path=/; Expires=Mon, 04 Nov 2024 15:53:56 GMT; HttpOnly"
+            Date:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: "Mon, 04 Nov 2024 15:52:56 GMT"
+            Connection:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                result:
+                - id: 120363358206243368@g.us
+                  subject: Develop WhatsApp Gateway
+                  subjectOwner: 6283840398931@s.whatsapp.net
+                  subjectTime: 1730574610
+                  size: 2
+                  creation: 1730574610
+                  owner: 6283840398931@s.whatsapp.net
+                  description: Tempat belajar rest api WhatsApp
+                  descriptionId: F4B7632EF0EA1877D51D9A794A9ABD04
+                  restrict: false
+                  announce: false
+                  isCommunity: false
+                  isCommunityAnnounce: false
+                  joinApprovalMode: false
+                  memberAddMode: true
+                  participants:
+                  - id: 6281328646069@s.whatsapp.net
+                    role: admin
+                  - id: 6283840398931@s.whatsapp.net
+                    role: superadmin
+                - id: 120363169255906392@g.us
+                  subject: Waiting List Member PBT
+                  subjectOwner: 6287882769079@s.whatsapp.net
+                  subjectTime: 1719906945
+                  size: 9
+                  creation: 1694075560
+                  owner: 6281328646069@s.whatsapp.net
+                  description: |-
+                    *‼️ ATTENTION PLEASE ‼️*
+                    Ini adalah grup sementara untuk calon member  PBT sambil menunggu verifikasi (akan di invite ke grup member secara bersamaan setelah closed)
+                    *Untuk info jadwal latihan akan diinfokan disini*
+                    Segala Pertanyaan silahkan ditanyakan di Grup ini 😁
+                  descriptionId: 639988689C55F7BDF5147B786A595EAD
+                  restrict: true
+                  announce: false
+                  isCommunity: false
+                  isCommunityAnnounce: false
+                  joinApprovalMode: true
+                  memberAddMode: false
+                  participants:
+                  - id: 6281328646069@s.whatsapp.net
+                    role: superadmin
+                  - id: 6282122995789@s.whatsapp.net
+                    role: member
+                  - id: 6282249881374@s.whatsapp.net
+                    role: member
+                  - id: 6282298708858@s.whatsapp.net
+                    role: member
+                  - id: 6282387452386@s.whatsapp.net
+                    role: admin
+                  - id: 6283840398931@s.whatsapp.net
+                    role: admin
+                  - id: 6285773473531@s.whatsapp.net
+                    role: admin
+                  - id: 6287809007567@s.whatsapp.net
+                    role: admin
+                  - id: 6287882769079@s.whatsapp.net
+                    role: admin
+                - id: 120363335568098895@g.us
+                  subject: Racing Class PBT
+                  subjectOwner: 6287882769079@s.whatsapp.net
+                  subjectTime: 1726645448
+                  size: 13
+                  creation: 1726645250
+                  owner: 6281328646069@s.whatsapp.net
+                  description: |-
+                    Jadwal Latihan
+                    - Rabu
+                          - 19.00 - 21.00 wib
+                    - Jumat
+                         - 19.00 - 21.00 wib
+                  descriptionId: 49A1F2E356B7B7CE22BA5540F654BFBB
+                  restrict: false
+                  announce: false
+                  isCommunity: false
+                  isCommunityAnnounce: false
+                  joinApprovalMode: true
+                  memberAddMode: true
+                  participants:
+                  - id: 6281284656980@s.whatsapp.net
+                    role: member
+                  - id: 6281293761927@s.whatsapp.net
+                    role: member
+                  - id: 6281314121232@s.whatsapp.net
+                    role: member
+                  - id: 6281315382787@s.whatsapp.net
+                    role: member
+                  - id: 6281328646069@s.whatsapp.net
+                    role: superadmin
+                  - id: 6282226742213@s.whatsapp.net
+                    role: member
+                  - id: 6283840398931@s.whatsapp.net
+                    role: admin
+                  - id: 6285225502370@s.whatsapp.net
+                    role: member
+                  - id: 6285773473531@s.whatsapp.net
+                    role: admin
+                  - id: 6285781309192@s.whatsapp.net
+                    role: member
+                  - id: 6287880803737@s.whatsapp.net
+                    role: member
+                  - id: 6287882769079@s.whatsapp.net
+                    role: admin
+                  - id: 628989343329@s.whatsapp.net
+                    role: member
+                - id: 120363320187184907@g.us
+                  subject: "Tech Corner : Master Data Insight Visualisasi & Monitoring\
+                    \ Infrastruktur Anti Ribet"
+                  subjectOwner: 6281222219154@s.whatsapp.net
+                  subjectTime: 1727405828
+                  size: 125
+                  creation: 1727234718
+                  owner: 6281222219154@s.whatsapp.net
+                  restrict: false
+                  announce: false
+                  isCommunity: false
+                  isCommunityAnnounce: false
+                  joinApprovalMode: false
+                  memberAddMode: false
+                  participants:
+                  - id: 6281324941403@s.whatsapp.net
+                    role: member
+                  - id: 628979156600@s.whatsapp.net
+                    role: member
+                  - id: 6285801213944@s.whatsapp.net
+                    role: member
+                  - id: 6285162560052@s.whatsapp.net
+                    role: member
+                  - id: 6285692177727@s.whatsapp.net
+                    role: member
+                  - id: 6285340852512@s.whatsapp.net
+                    role: member
+                  - id: 6285853372829@s.whatsapp.net
+                    role: member
+                  - id: 6282199838282@s.whatsapp.net
+                    role: member
+                  - id: 6283115503354@s.whatsapp.net
+                    role: member
+                  - id: 6281222219154@s.whatsapp.net
+                    role: superadmin
+                  - id: 6285235580464@s.whatsapp.net
+                    role: member
+                  - id: 6281225449973@s.whatsapp.net
+                    role: member
+                  - id: 6285239463262@s.whatsapp.net
+                    role: member
+                  - id: 628973258551@s.whatsapp.net
+                    role: member
+                  - id: 6281519814821@s.whatsapp.net
+                    role: member
+                  - id: 6285655647406@s.whatsapp.net
+                    role: member
+                  - id: 6285717635195@s.whatsapp.net
+                    role: member
+                  - id: 6289663637175@s.whatsapp.net
+                    role: member
+                  - id: 628567547267@s.whatsapp.net
+                    role: member
+                  - id: 6285155277256@s.whatsapp.net
+                    role: member
+                  - id: 6281225626322@s.whatsapp.net
+                    role: member
+                  - id: 6282316501267@s.whatsapp.net
+                    role: member
+                  - id: 6289601542712@s.whatsapp.net
+                    role: member
+                  - id: 6282331468207@s.whatsapp.net
+                    role: member
+                  - id: 6287881127704@s.whatsapp.net
+                    role: member
+                  - id: 6289512572566@s.whatsapp.net
+                    role: member
+                  - id: 6289525963067@s.whatsapp.net
+                    role: member
+                  - id: 628161376800@s.whatsapp.net
+                    role: member
+                  - id: 6281288572408@s.whatsapp.net
+                    role: member
+                  - id: 628990864884@s.whatsapp.net
+                    role: member
+                  - id: 6281931790147@s.whatsapp.net
+                    role: member
+                  - id: 6282335345228@s.whatsapp.net
+                    role: member
+                  - id: 6285649561414@s.whatsapp.net
+                    role: member
+                  - id: 6285813083237@s.whatsapp.net
+                    role: member
+                  - id: 6289644447079@s.whatsapp.net
+                    role: member
+                  - id: 6281298517338@s.whatsapp.net
+                    role: member
+                  - id: 6285171506487@s.whatsapp.net
+                    role: member
+                  - id: 6285333841234@s.whatsapp.net
+                    role: member
+                  - id: 6281283172714@s.whatsapp.net
+                    role: member
+                  - id: 6285954557575@s.whatsapp.net
+                    role: member
+                  - id: 6282298749669@s.whatsapp.net
+                    role: member
+                  - id: 6281275458355@s.whatsapp.net
+                    role: member
+                  - id: 6287718111397@s.whatsapp.net
+                    role: member
+                  - id: 6281316512879@s.whatsapp.net
+                    role: member
+                  - id: 6282332261924@s.whatsapp.net
+                    role: member
+                  - id: 6287874333538@s.whatsapp.net
+                    role: member
+                  - id: 6285770066975@s.whatsapp.net
+                    role: member
+                  - id: 6281248844300@s.whatsapp.net
+                    role: member
+                  - id: 6281219136696@s.whatsapp.net
+                    role: member
+                  - id: 6281312345065@s.whatsapp.net
+                    role: member
+                  - id: 6282111569068@s.whatsapp.net
+                    role: member
+                  - id: 6281272007983@s.whatsapp.net
+                    role: member
+                  - id: 6281329556319@s.whatsapp.net
+                    role: member
+                  - id: 6281235858331@s.whatsapp.net
+                    role: member
+                  - id: 6281328646069@s.whatsapp.net
+                    role: member
+                  - id: 6282122225306@s.whatsapp.net
+                    role: member
+                  - id: 6281231561670@s.whatsapp.net
+                    role: member
+                  - id: 6285659441325@s.whatsapp.net
+                    role: member
+                  - id: 6285743968562@s.whatsapp.net
+                    role: member
+                  - id: 6283124247314@s.whatsapp.net
+                    role: member
+                  - id: 6285263634140@s.whatsapp.net
+                    role: member
+                  - id: 6289637756928@s.whatsapp.net
+                    role: member
+                  - id: 6285794662525@s.whatsapp.net
+                    role: member
+                  - id: 628561968128@s.whatsapp.net
+                    role: member
+                  - id: 628128813440@s.whatsapp.net
+                    role: member
+                  - id: 6285716169351@s.whatsapp.net
+                    role: member
+                  - id: 6281210402840@s.whatsapp.net
+                    role: member
+                  - id: 6281293937373@s.whatsapp.net
+                    role: member
+                  - id: 6285186848986@s.whatsapp.net
+                    role: member
+                  - id: 6285218447766@s.whatsapp.net
+                    role: member
+                  - id: 6285624443009@s.whatsapp.net
+                    role: member
+                  - id: 6282261889296@s.whatsapp.net
+                    role: member
+                  - id: 6285737101388@s.whatsapp.net
+                    role: member
+                  - id: 6289687759965@s.whatsapp.net
+                    role: member
+                  - id: 6281314668531@s.whatsapp.net
+                    role: member
+                  - id: 6287779307421@s.whatsapp.net
+                    role: member
+                  - id: 6281269849838@s.whatsapp.net
+                    role: member
+                  - id: 6281218879477@s.whatsapp.net
+                    role: member
+                  - id: 6285172401039@s.whatsapp.net
+                    role: member
+                  - id: 6281310979252@s.whatsapp.net
+                    role: member
+                  - id: 6289504000290@s.whatsapp.net
+                    role: member
+                  - id: 6285156360468@s.whatsapp.net
+                    role: member
+                  - id: 6287882113384@s.whatsapp.net
+                    role: member
+                  - id: 6287739952837@s.whatsapp.net
+                    role: member
+                  - id: 6285362474328@s.whatsapp.net
+                    role: member
+                  - id: 6285810269711@s.whatsapp.net
+                    role: member
+                  - id: 6281927727020@s.whatsapp.net
+                    role: member
+                  - id: 6282331556038@s.whatsapp.net
+                    role: member
+                  - id: 6281231627577@s.whatsapp.net
+                    role: member
+                  - id: 6287886397926@s.whatsapp.net
+                    role: member
+                  - id: 6289621666734@s.whatsapp.net
+                    role: member
+                  - id: 6281350400660@s.whatsapp.net
+                    role: member
+                  - id: 6285231373233@s.whatsapp.net
+                    role: member
+                  - id: 6285967197604@s.whatsapp.net
+                    role: member
+                  - id: 6282110833390@s.whatsapp.net
+                    role: member
+                  - id: 6287719851581@s.whatsapp.net
+                    role: member
+                  - id: 6281517603227@s.whatsapp.net
+                    role: member
+                  - id: 6285287475044@s.whatsapp.net
+                    role: member
+                  - id: 6285736577414@s.whatsapp.net
+                    role: member
+                  - id: 628871685279@s.whatsapp.net
+                    role: member
+                  - id: 6283863506767@s.whatsapp.net
+                    role: member
+                  - id: 6282112146364@s.whatsapp.net
+                    role: member
+                  - id: 62881025013426@s.whatsapp.net
+                    role: member
+                  - id: 6281380424786@s.whatsapp.net
+                    role: member
+                  - id: 6289506827911@s.whatsapp.net
+                    role: member
+                  - id: 6285215833886@s.whatsapp.net
+                    role: member
+                  - id: 6282192272171@s.whatsapp.net
+                    role: member
+                  - id: 6285161998862@s.whatsapp.net
+                    role: member
+                  - id: 6285171662827@s.whatsapp.net
+                    role: member
+                  - id: 6281918063928@s.whatsapp.net
+                    role: member
+                  - id: 6287884149002@s.whatsapp.net
+                    role: member
+                  - id: 6285771958543@s.whatsapp.net
+                    role: member
+                  - id: 6281297073830@s.whatsapp.net
+                    role: member
+                  - id: 6281210135437@s.whatsapp.net
+                    role: member
+                  - id: 628878802736@s.whatsapp.net
+                    role: member
+                  - id: 62881023559959@s.whatsapp.net
+                    role: member
+                  - id: 6289505800324@s.whatsapp.net
+                    role: member
+                  - id: 6285312688693@s.whatsapp.net
+                    role: member
+                  - id: 6282367626012@s.whatsapp.net
+                    role: member
+                  - id: 6281904211565@s.whatsapp.net
+                    role: member
+                  - id: 6285158673040@s.whatsapp.net
+                    role: member
+                  - id: 6287784450671@s.whatsapp.net
+                    role: member
+                  - id: 6281809323859@s.whatsapp.net
+                    role: member
+                  - id: 6289505559805@s.whatsapp.net
+                    role: member
+                  - id: 6285935171790@s.whatsapp.net
+                    role: member
+                - id: 120363030513241151@g.us
+                  subject: PUSHBIKE TANGERANG
+                  subjectOwner: 628567179911@s.whatsapp.net
+                  subjectTime: 1669536472
+                  size: 465
+                  creation: 1669098879
+                  owner: 6287882769079@s.whatsapp.net
+                  description: |-
+                    Welcome to Pushbike Tangerang
+
+                    #DariKitaUntukKita#
+                    #MantapJasa#
+                    https://pushbiketangerang.com/
+                  descriptionId: 6F1CDA2058DC541C
+                  restrict: true
+                  announce: false
+                  isCommunity: false
+                  isCommunityAnnounce: false
+                  joinApprovalMode: true
+                  memberAddMode: false
+                  participants:
+                  - id: 6285213233626@s.whatsapp.net
+                    role: member
+                  - id: 62811530115@s.whatsapp.net
+                    role: member
+                  - id: 6285643658583@s.whatsapp.net
+                    role: member
+                  - id: 6285223219724@s.whatsapp.net
+                    role: member
+                  - id: 6281212194041@s.whatsapp.net
+                    role: member
+                  - id: 6281381061448@s.whatsapp.net
+                    role: member
+                  - id: 6282111050849@s.whatsapp.net
+                    role: member
+                  - id: 6281381785996@s.whatsapp.net
+                    role: member
+                  - id: 6285940776551@s.whatsapp.net
+                    role: member
+                  - id: 6281387457177@s.whatsapp.net
+                    role: member
+                  - id: 6287835724330@s.whatsapp.net
+                    role: member
+                  - id: 6281297258720@s.whatsapp.net
+                    role: member
+                  - id: 6285691194309@s.whatsapp.net
+                    role: member
+                  - id: 6285811843024@s.whatsapp.net
+                    role: member
+                  - id: 628551868394@s.whatsapp.net
+                    role: member
+                  - id: 62818102510@s.whatsapp.net
+                    role: member
+                  - id: 628978443506@s.whatsapp.net
+                    role: member
+                  - id: 6281361601824@s.whatsapp.net
+                    role: member
+                  - id: 6281298486861@s.whatsapp.net
+                    role: member
+                  - id: 6285779716993@s.whatsapp.net
+                    role: member
+                  - id: 6281382820998@s.whatsapp.net
+                    role: member
+                  - id: 6287837360769@s.whatsapp.net
+                    role: member
+                  - id: 6281291233445@s.whatsapp.net
+                    role: admin
+                  - id: 6285225240707@s.whatsapp.net
+                    role: member
+                  - id: 6281282443657@s.whatsapp.net
+                    role: member
+                  - id: 6281906101719@s.whatsapp.net
+                    role: member
+                  - id: 6281387806898@s.whatsapp.net
+                    role: member
+                  - id: 6281291268406@s.whatsapp.net
+                    role: member
+                  - id: 6281314432481@s.whatsapp.net
+                    role: member
+                  - id: 6285326557864@s.whatsapp.net
+                    role: member
+                  - id: 6281298875928@s.whatsapp.net
+                    role: member
+                  - id: 6281220839973@s.whatsapp.net
+                    role: member
+                  - id: 6281586462200@s.whatsapp.net
+                    role: member
+                  - id: 6288214629809@s.whatsapp.net
+                    role: member
+                  - id: 6281320070109@s.whatsapp.net
+                    role: member
+                  - id: 628557103492@s.whatsapp.net
+                    role: member
+                  - id: 6289618962072@s.whatsapp.net
+                    role: member
+                  - id: 628567179911@s.whatsapp.net
+                    role: member
+                  - id: 6282123064528@s.whatsapp.net
+                    role: member
+                  - id: 6287884824665@s.whatsapp.net
+                    role: member
+                  - id: 6289653233974@s.whatsapp.net
+                    role: member
+                  - id: 6289618481835@s.whatsapp.net
+                    role: member
+                  - id: 6281228822135@s.whatsapp.net
+                    role: member
+                  - id: 6283871691413@s.whatsapp.net
+                    role: member
+                  - id: 6281808666800@s.whatsapp.net
+                    role: member
+                  - id: 6282165177110@s.whatsapp.net
+                    role: member
+                  - id: 6285214085670@s.whatsapp.net
+                    role: member
+                  - id: 6281294695339@s.whatsapp.net
+                    role: member
+                  - id: 6281368330732@s.whatsapp.net
+                    role: member
+                  - id: 6285174100160@s.whatsapp.net
+                    role: member
+                  - id: 6281517031931@s.whatsapp.net
+                    role: member
+                  - id: 6287883400075@s.whatsapp.net
+                    role: member
+                  - id: 6289630041531@s.whatsapp.net
+                    role: member
+                  - id: 6287771236119@s.whatsapp.net
+                    role: member
+                  - id: 6281278840183@s.whatsapp.net
+                    role: member
+                  - id: 6282113364820@s.whatsapp.net
+                    role: member
+                  - id: 6281217777222@s.whatsapp.net
+                    role: member
+                  - id: 6282113357989@s.whatsapp.net
+                    role: member
+                  - id: 628174953911@s.whatsapp.net
+                    role: member
+                  - id: 6281808901771@s.whatsapp.net
+                    role: member
+                  - id: 6282298835747@s.whatsapp.net
+                    role: member
+                  - id: 6281287064313@s.whatsapp.net
+                    role: member
+                  - id: 6285777644800@s.whatsapp.net
+                    role: member
+                  - id: 6287786653513@s.whatsapp.net
+                    role: member
+                  - id: 6287880803737@s.whatsapp.net
+                    role: member
+                  - id: 6281212578707@s.whatsapp.net
+                    role: member
+                  - id: 6282231769987@s.whatsapp.net
+                    role: member
+                  - id: 6281278498641@s.whatsapp.net
+                    role: member
+                  - id: 6285946414327@s.whatsapp.net
+                    role: member
+                  - id: 6289634500737@s.whatsapp.net
+                    role: member
+                  - id: 6281315382787@s.whatsapp.net
+                    role: member
+                  - id: 6285711811088@s.whatsapp.net
+                    role: member
+                  - id: 6281290901573@s.whatsapp.net
+                    role: member
+                  - id: 6282125547005@s.whatsapp.net
+                    role: member
+                  - id: 6281222463429@s.whatsapp.net
+                    role: member
+                  - id: 6282244070732@s.whatsapp.net
+                    role: member
+                  - id: 62818720165@s.whatsapp.net
+                    role: member
+                  - id: 628111926094@s.whatsapp.net
+                    role: member
+                  - id: 6281317139958@s.whatsapp.net
+                    role: member
+                  - id: 6283873094949@s.whatsapp.net
+                    role: member
+                  - id: 6281381007136@s.whatsapp.net
+                    role: member
+                  - id: 62817462595@s.whatsapp.net
+                    role: member
+                  - id: 6281295254332@s.whatsapp.net
+                    role: member
+                  - id: 6287809788846@s.whatsapp.net
+                    role: member
+                  - id: 6281346420160@s.whatsapp.net
+                    role: member
+                  - id: 628973167120@s.whatsapp.net
+                    role: member
+                  - id: 628979542842@s.whatsapp.net
+                    role: member
+                  - id: 628979258668@s.whatsapp.net
+                    role: member
+                  - id: 6281286151991@s.whatsapp.net
+                    role: member
+                  - id: 6281382188819@s.whatsapp.net
+                    role: member
+                  - id: 6287867168155@s.whatsapp.net
+                    role: member
+                  - id: 6282298061079@s.whatsapp.net
+                    role: member
+                  - id: 6281911298454@s.whatsapp.net
+                    role: member
+                  - id: 6285693345627@s.whatsapp.net
+                    role: member
+                  - id: 62895322111160@s.whatsapp.net
+                    role: member
+                  - id: 6281333576457@s.whatsapp.net
+                    role: member
+                  - id: 6281285838525@s.whatsapp.net
+                    role: member
+                  - id: 6287753242453@s.whatsapp.net
+                    role: member
+                  - id: 6281210155335@s.whatsapp.net
+                    role: member
+                  - id: 6281298597001@s.whatsapp.net
+                    role: member
+                  - id: 6287880108880@s.whatsapp.net
+                    role: member
+                  - id: 6282260379993@s.whatsapp.net
+                    role: member
+                  - id: 6285714904816@s.whatsapp.net
+                    role: member
+                  - id: 6285891019570@s.whatsapp.net
+                    role: member
+                  - id: 6283819803789@s.whatsapp.net
+                    role: member
+                  - id: 6281221527766@s.whatsapp.net
+                    role: member
+                  - id: 6281271629901@s.whatsapp.net
+                    role: member
+                  - id: 628119931200@s.whatsapp.net
+                    role: member
+                  - id: 628985717335@s.whatsapp.net
+                    role: member
+                  - id: 6282313118233@s.whatsapp.net
+                    role: member
+                  - id: 6281289406212@s.whatsapp.net
+                    role: member
+                  - id: 6285801422450@s.whatsapp.net
+                    role: member
+                  - id: 62895610460240@s.whatsapp.net
+                    role: member
+                  - id: 6282244441465@s.whatsapp.net
+                    role: member
+                  - id: 6281299334492@s.whatsapp.net
+                    role: member
+                  - id: 6287885728046@s.whatsapp.net
+                    role: member
+                  - id: 6285782926521@s.whatsapp.net
+                    role: member
+                  - id: 6282392065668@s.whatsapp.net
+                    role: member
+                  - id: 628989331346@s.whatsapp.net
+                    role: member
+                  - id: 6285174467774@s.whatsapp.net
+                    role: member
+                  - id: 6285837512719@s.whatsapp.net
+                    role: member
+                  - id: 6281382638707@s.whatsapp.net
+                    role: member
+                  - id: 62819876430@s.whatsapp.net
+                    role: member
+                  - id: 6282137958463@s.whatsapp.net
+                    role: member
+                  - id: 62895347273979@s.whatsapp.net
+                    role: member
+                  - id: 6282221477301@s.whatsapp.net
+                    role: member
+                  - id: 6281288727466@s.whatsapp.net
+                    role: member
+                  - id: 6281290166419@s.whatsapp.net
+                    role: member
+                  - id: 6285268236833@s.whatsapp.net
+                    role: member
+                  - id: 6285158533367@s.whatsapp.net
+                    role: member
+                  - id: 6281221812444@s.whatsapp.net
+                    role: member
+                  - id: 6289630866454@s.whatsapp.net
+                    role: member
+                  - id: 6281339781415@s.whatsapp.net
+                    role: member
+                  - id: 6285946700903@s.whatsapp.net
+                    role: member
+                  - id: 6281284848841@s.whatsapp.net
+                    role: member
+                  - id: 6285811844356@s.whatsapp.net
+                    role: member
+                  - id: 6287883986610@s.whatsapp.net
+                    role: member
+                  - id: 6289653094437@s.whatsapp.net
+                    role: member
+                  - id: 6285695902700@s.whatsapp.net
+                    role: member
+                  - id: 6287882769079@s.whatsapp.net
+                    role: admin
+                  - id: 62818192233@s.whatsapp.net
+                    role: member
+                  - id: 6287780461149@s.whatsapp.net
+                    role: member
+                  - id: 6289668820970@s.whatsapp.net
+                    role: member
+                  - id: 628987767749@s.whatsapp.net
+                    role: member
+                  - id: 628989343329@s.whatsapp.net
+                    role: member
+                  - id: 6285778801693@s.whatsapp.net
+                    role: member
+                  - id: 6285536607851@s.whatsapp.net
+                    role: member
+                  - id: 6281398369720@s.whatsapp.net
+                    role: member
+                  - id: 6285710216756@s.whatsapp.net
+                    role: member
+                  - id: 6281223366761@s.whatsapp.net
+                    role: member
+                  - id: 628986270070@s.whatsapp.net
+                    role: member
+                  - id: 6281296674464@s.whatsapp.net
+                    role: member
+                  - id: 6285695322383@s.whatsapp.net
+                    role: member
+                  - id: 6282260151201@s.whatsapp.net
+                    role: member
+                  - id: 6282276221643@s.whatsapp.net
+                    role: member
+                  - id: 6285157244286@s.whatsapp.net
+                    role: member
+                  - id: 6287773510318@s.whatsapp.net
+                    role: member
+                  - id: 6285275626990@s.whatsapp.net
+                    role: member
+                  - id: 6285711630579@s.whatsapp.net
+                    role: member
+                  - id: 6285711866406@s.whatsapp.net
+                    role: member
+                  - id: 6282111932399@s.whatsapp.net
+                    role: member
+                  - id: 6282299274767@s.whatsapp.net
+                    role: member
+                  - id: 6285716372543@s.whatsapp.net
+                    role: member
+                  - id: 6281770759755@s.whatsapp.net
+                    role: member
+                  - id: 6285219515549@s.whatsapp.net
+                    role: member
+                  - id: 6281287730647@s.whatsapp.net
+                    role: member
+                  - id: 6287789894447@s.whatsapp.net
+                    role: member
+                  - id: 6287878077761@s.whatsapp.net
+                    role: member
+                  - id: 6285691233088@s.whatsapp.net
+                    role: member
+                  - id: 6281271569160@s.whatsapp.net
+                    role: member
+                  - id: 6281219726127@s.whatsapp.net
+                    role: member
+                  - id: 6285725611332@s.whatsapp.net
+                    role: member
+                  - id: 6285279800678@s.whatsapp.net
+                    role: member
+                  - id: 6283870100484@s.whatsapp.net
+                    role: member
+                  - id: 6281213382393@s.whatsapp.net
+                    role: member
+                  - id: 6281290002794@s.whatsapp.net
+                    role: member
+                  - id: 6287774658493@s.whatsapp.net
+                    role: member
+                  - id: 6285773473531@s.whatsapp.net
+                    role: member
+                  - id: 6281212336135@s.whatsapp.net
+                    role: member
+                  - id: 6282122570591@s.whatsapp.net
+                    role: member
+                  - id: 628988022649@s.whatsapp.net
+                    role: member
+                  - id: 6285691905634@s.whatsapp.net
+                    role: member
+                  - id: 628569096008@s.whatsapp.net
+                    role: member
+                  - id: 6281291233870@s.whatsapp.net
+                    role: member
+                  - id: 6287870888677@s.whatsapp.net
+                    role: member
+                  - id: 6282123388078@s.whatsapp.net
+                    role: member
+                  - id: 6281286248034@s.whatsapp.net
+                    role: member
+                  - id: 6285215134828@s.whatsapp.net
+                    role: member
+                  - id: 6285779481337@s.whatsapp.net
+                    role: member
+                  - id: 6281379670724@s.whatsapp.net
+                    role: member
+                  - id: 6283899218051@s.whatsapp.net
+                    role: member
+                  - id: 6282110957821@s.whatsapp.net
+                    role: member
+                  - id: 6285693274872@s.whatsapp.net
+                    role: member
+                  - id: 6281314863846@s.whatsapp.net
+                    role: member
+                  - id: 6283806228050@s.whatsapp.net
+                    role: member
+                  - id: 6289641434244@s.whatsapp.net
+                    role: member
+                  - id: 6285720571150@s.whatsapp.net
+                    role: member
+                  - id: 6285729388355@s.whatsapp.net
+                    role: member
+                  - id: 6281219743945@s.whatsapp.net
+                    role: member
+                  - id: 62895384162325@s.whatsapp.net
+                    role: member
+                  - id: 6288212173435@s.whatsapp.net
+                    role: member
+                  - id: 6281337534789@s.whatsapp.net
+                    role: member
+                  - id: 6287891232000@s.whatsapp.net
+                    role: member
+                  - id: 6285930233350@s.whatsapp.net
+                    role: member
+                  - id: 6285781309192@s.whatsapp.net
+                    role: member
+                  - id: 6285817193771@s.whatsapp.net
+                    role: member
+                  - id: 6282138241711@s.whatsapp.net
+                    role: member
+                  - id: 6283805450071@s.whatsapp.net
+                    role: member
+                  - id: 6285945535725@s.whatsapp.net
+                    role: member
+                  - id: 6285921299399@s.whatsapp.net
+                    role: member
+                  - id: 6281218557599@s.whatsapp.net
+                    role: member
+                  - id: 6281906318191@s.whatsapp.net
+                    role: member
+                  - id: 6282119643722@s.whatsapp.net
+                    role: member
+                  - id: 62895337050100@s.whatsapp.net
+                    role: member
+                  - id: 6281296350605@s.whatsapp.net
+                    role: member
+                  - id: 6281284688554@s.whatsapp.net
+                    role: member
+                  - id: 6285697537277@s.whatsapp.net
+                    role: member
+                  - id: 6285158687966@s.whatsapp.net
+                    role: member
+                  - id: 628385588089@s.whatsapp.net
+                    role: member
+                  - id: 6283895505123@s.whatsapp.net
+                    role: member
+                  - id: 6281311489918@s.whatsapp.net
+                    role: member
+                  - id: 6285890649761@s.whatsapp.net
+                    role: member
+                  - id: 6281336635035@s.whatsapp.net
+                    role: member
+                  - id: 6281285678564@s.whatsapp.net
+                    role: member
+                  - id: 6285290958023@s.whatsapp.net
+                    role: member
+                  - id: 6281289044664@s.whatsapp.net
+                    role: member
+                  - id: 6285641208004@s.whatsapp.net
+                    role: member
+                  - id: 6281328646069@s.whatsapp.net
+                    role: admin
+                  - id: 6281212800942@s.whatsapp.net
+                    role: member
+                  - id: 6285955253555@s.whatsapp.net
+                    role: member
+                  - id: 6281381838908@s.whatsapp.net
+                    role: member
+                  - id: 6282126315218@s.whatsapp.net
+                    role: member
+                  - id: 6285945045841@s.whatsapp.net
+                    role: member
+                  - id: 6285225502370@s.whatsapp.net
+                    role: member
+                  - id: 6281112323933@s.whatsapp.net
+                    role: member
+                  - id: 6281319466356@s.whatsapp.net
+                    role: member
+                  - id: 6285649545749@s.whatsapp.net
+                    role: member
+                  - id: 6281281204852@s.whatsapp.net
+                    role: member
+                  - id: 6281295956183@s.whatsapp.net
+                    role: member
+                  - id: 6281218375216@s.whatsapp.net
+                    role: member
+                  - id: 6285281836917@s.whatsapp.net
+                    role: member
+                  - id: 6288210729306@s.whatsapp.net
+                    role: member
+                  - id: 6285263180100@s.whatsapp.net
+                    role: member
+                  - id: 6283813469469@s.whatsapp.net
+                    role: member
+                  - id: 6282111075140@s.whatsapp.net
+                    role: member
+                  - id: 628988561635@s.whatsapp.net
+                    role: member
+                  - id: 6285741135240@s.whatsapp.net
+                    role: member
+                  - id: 6281380782811@s.whatsapp.net
+                    role: member
+                  - id: 6282260000604@s.whatsapp.net
+                    role: member
+                  - id: 6281398772848@s.whatsapp.net
+                    role: member
+                  - id: 6281311198444@s.whatsapp.net
+                    role: member
+                  - id: 6289636333240@s.whatsapp.net
+                    role: member
+                  - id: 628994378988@s.whatsapp.net
+                    role: member
+                  - id: 6287788957838@s.whatsapp.net
+                    role: member
+                  - id: 6282325189070@s.whatsapp.net
+                    role: member
+                  - id: 6281219243510@s.whatsapp.net
+                    role: member
+                  - id: 6281318989711@s.whatsapp.net
+                    role: member
+                  - id: 6287881125532@s.whatsapp.net
+                    role: member
+                  - id: 6282225753664@s.whatsapp.net
+                    role: member
+                  - id: 6287736717118@s.whatsapp.net
+                    role: member
+                  - id: 6285319150235@s.whatsapp.net
+                    role: member
+                  - id: 6285773408909@s.whatsapp.net
+                    role: member
+                  - id: 6289653833030@s.whatsapp.net
+                    role: member
+                  - id: 6282211121821@s.whatsapp.net
+                    role: member
+                  - id: 6282246704128@s.whatsapp.net
+                    role: member
+                  - id: 6281277873877@s.whatsapp.net
+                    role: member
+                  - id: 62895413177444@s.whatsapp.net
+                    role: member
+                  - id: 6281212114901@s.whatsapp.net
+                    role: member
+                  - id: 6281322263326@s.whatsapp.net
+                    role: member
+                  - id: 6281382181232@s.whatsapp.net
+                    role: member
+                  - id: 6281222697652@s.whatsapp.net
+                    role: member
+                  - id: 6282211115776@s.whatsapp.net
+                    role: member
+                  - id: 6282211129610@s.whatsapp.net
+                    role: member
+                  - id: 6281283282152@s.whatsapp.net
+                    role: member
+                  - id: 6281218593829@s.whatsapp.net
+                    role: member
+                  - id: 6281311514941@s.whatsapp.net
+                    role: member
+                  - id: 6281297973350@s.whatsapp.net
+                    role: member
+                  - id: 6282115951478@s.whatsapp.net
+                    role: member
+                  - id: 6282376909999@s.whatsapp.net
+                    role: member
+                  - id: 6289605799771@s.whatsapp.net
+                    role: member
+                  - id: 6281292576957@s.whatsapp.net
+                    role: member
+                  - id: 6285722391147@s.whatsapp.net
+                    role: member
+                  - id: 628124250959@s.whatsapp.net
+                    role: member
+                  - id: 6281999347540@s.whatsapp.net
+                    role: member
+                  - id: 6287733270787@s.whatsapp.net
+                    role: member
+                  - id: 6281905875153@s.whatsapp.net
+                    role: member
+                  - id: 6282231682535@s.whatsapp.net
+                    role: member
+                  - id: 6281283221776@s.whatsapp.net
+                    role: member
+                  - id: 6281288867111@s.whatsapp.net
+                    role: member
+                  - id: 6282120183815@s.whatsapp.net
+                    role: member
+                  - id: 6281808540900@s.whatsapp.net
+                    role: member
+                  - id: 6281231306668@s.whatsapp.net
+                    role: member
+                  - id: 6281286343406@s.whatsapp.net
+                    role: member
+                  - id: 6283840398931@s.whatsapp.net
+                    role: admin
+                  - id: 6281234465920@s.whatsapp.net
+                    role: member
+                  - id: 6282297172826@s.whatsapp.net
+                    role: member
+                  - id: 6289629679017@s.whatsapp.net
+                    role: member
+                  - id: 6281238999057@s.whatsapp.net
+                    role: member
+                  - id: 6285155422323@s.whatsapp.net
+                    role: member
+                  - id: 6289621860822@s.whatsapp.net
+                    role: member
+                  - id: 628970710118@s.whatsapp.net
+                    role: member
+                  - id: 6287827666550@s.whatsapp.net
+                    role: member
+                  - id: 6281280471248@s.whatsapp.net
+                    role: member
+                  - id: 6281281444088@s.whatsapp.net
+                    role: member
+                  - id: 6281281774916@s.whatsapp.net
+                    role: member
+                  - id: 6287730575904@s.whatsapp.net
+                    role: member
+                  - id: 6285174243893@s.whatsapp.net
+                    role: member
+                  - id: 6281294880040@s.whatsapp.net
+                    role: member
+                  - id: 6283873474877@s.whatsapp.net
+                    role: member
+                  - id: 6281397079505@s.whatsapp.net
+                    role: member
+                  - id: 6285742080803@s.whatsapp.net
+                    role: member
+                  - id: 6287774151298@s.whatsapp.net
+                    role: member
+                  - id: 628111913600@s.whatsapp.net
+                    role: member
+                  - id: 6285655581811@s.whatsapp.net
+                    role: member
+                  - id: 6285881423157@s.whatsapp.net
+                    role: member
+                  - id: 6285692117817@s.whatsapp.net
+                    role: member
+                  - id: 628980667439@s.whatsapp.net
+                    role: member
+                  - id: 6283813429773@s.whatsapp.net
+                    role: admin
+                  - id: 6281293569809@s.whatsapp.net
+                    role: member
+                  - id: 6282120671824@s.whatsapp.net
+                    role: member
+                  - id: 6282231467373@s.whatsapp.net
+                    role: member
+                  - id: 6281514197424@s.whatsapp.net
+                    role: member
+                  - id: 6281284825326@s.whatsapp.net
+                    role: member
+                  - id: 6285664064244@s.whatsapp.net
+                    role: member
+                  - id: 6281212553797@s.whatsapp.net
+                    role: member
+                  - id: 62895346078538@s.whatsapp.net
+                    role: member
+                  - id: 628988885222@s.whatsapp.net
+                    role: member
+                  - id: 6285216355674@s.whatsapp.net
+                    role: member
+                  - id: 6281218878404@s.whatsapp.net
+                    role: member
+                  - id: 6287887143579@s.whatsapp.net
+                    role: member
+                  - id: 6282269992028@s.whatsapp.net
+                    role: member
+                  - id: 6283898844454@s.whatsapp.net
+                    role: member
+                  - id: 6281212994972@s.whatsapp.net
+                    role: member
+                  - id: 6281388844408@s.whatsapp.net
+                    role: member
+                  - id: 6285714111119@s.whatsapp.net
+                    role: member
+                  - id: 6281212444270@s.whatsapp.net
+                    role: member
+                  - id: 6281615556110@s.whatsapp.net
+                    role: member
+                  - id: 6285779252903@s.whatsapp.net
+                    role: member
+                  - id: 6282122770372@s.whatsapp.net
+                    role: member
+                  - id: 6281286003114@s.whatsapp.net
+                    role: member
+                  - id: 628561448414@s.whatsapp.net
+                    role: member
+                  - id: 6285213405969@s.whatsapp.net
+                    role: member
+                  - id: 6282237064262@s.whatsapp.net
+                    role: member
+                  - id: 6281278561625@s.whatsapp.net
+                    role: member
+                  - id: 6285692089250@s.whatsapp.net
+                    role: member
+                  - id: 6287799162569@s.whatsapp.net
+                    role: member
+                  - id: 6281212010701@s.whatsapp.net
+                    role: member
+                  - id: 6281293761927@s.whatsapp.net
+                    role: member
+                  - id: 6287803021993@s.whatsapp.net
+                    role: member
+                  - id: 97431093449@s.whatsapp.net
+                    role: member
+                  - id: 6281298724708@s.whatsapp.net
+                    role: member
+                  - id: 6281290301951@s.whatsapp.net
+                    role: member
+                  - id: 6285695690280@s.whatsapp.net
+                    role: member
+                  - id: 6285775779511@s.whatsapp.net
+                    role: member
+                  - id: 6281316769723@s.whatsapp.net
+                    role: member
+                  - id: 6285736754409@s.whatsapp.net
+                    role: member
+                  - id: 6282122852139@s.whatsapp.net
+                    role: member
+                  - id: 6285740569415@s.whatsapp.net
+                    role: member
+                  - id: 6287774705140@s.whatsapp.net
+                    role: member
+                  - id: 628992923462@s.whatsapp.net
+                    role: member
+                  - id: 6285888883943@s.whatsapp.net
+                    role: member
+                  - id: 6285759808361@s.whatsapp.net
+                    role: member
+                  - id: 6281311139191@s.whatsapp.net
+                    role: member
+                  - id: 6289621255987@s.whatsapp.net
+                    role: member
+                  - id: 6282113816096@s.whatsapp.net
+                    role: member
+                  - id: 6281287460324@s.whatsapp.net
+                    role: member
+                  - id: 6287887845882@s.whatsapp.net
+                    role: member
+                  - id: 6281380048492@s.whatsapp.net
+                    role: member
+                  - id: 6285779838884@s.whatsapp.net
+                    role: member
+                  - id: 6281288123678@s.whatsapp.net
+                    role: member
+                  - id: 6281287698724@s.whatsapp.net
+                    role: member
+                  - id: 628569942642@s.whatsapp.net
+                    role: member
+                  - id: 6285782305548@s.whatsapp.net
+                    role: member
+                  - id: 6281904082480@s.whatsapp.net
+                    role: member
+                  - id: 6281329023999@s.whatsapp.net
+                    role: member
+                  - id: 62818949086@s.whatsapp.net
+                    role: member
+                  - id: 6287883848536@s.whatsapp.net
+                    role: member
+                  - id: 6285283220149@s.whatsapp.net
+                    role: member
+                  - id: 6281315277374@s.whatsapp.net
+                    role: member
+                  - id: 6287774532752@s.whatsapp.net
+                    role: member
+                  - id: 6281380161876@s.whatsapp.net
+                    role: member
+                  - id: 628119922122@s.whatsapp.net
+                    role: member
+                  - id: 628569978722@s.whatsapp.net
+                    role: member
+                  - id: 62881024250140@s.whatsapp.net
+                    role: member
+                  - id: 6289606502663@s.whatsapp.net
+                    role: member
+                  - id: 6281284656980@s.whatsapp.net
+                    role: member
+                  - id: 6281393939400@s.whatsapp.net
+                    role: member
+                  - id: 6283819461775@s.whatsapp.net
+                    role: member
+                  - id: 6289622118262@s.whatsapp.net
+                    role: member
+                  - id: 6289503039015@s.whatsapp.net
+                    role: member
+                  - id: 6285288140331@s.whatsapp.net
+                    role: member
+                  - id: 628992923461@s.whatsapp.net
+                    role: member
+                  - id: 628119874111@s.whatsapp.net
+                    role: member
+                  - id: 6285648273977@s.whatsapp.net
+                    role: member
+                  - id: 6282231839173@s.whatsapp.net
+                    role: member
+                  - id: 6289650082112@s.whatsapp.net
+                    role: member
+                  - id: 6289662845262@s.whatsapp.net
+                    role: member
+                  - id: 6281296244914@s.whatsapp.net
+                    role: member
+                  - id: 6281226941423@s.whatsapp.net
+                    role: member
+                  - id: 6281221866207@s.whatsapp.net
+                    role: member
+                  - id: 6281381573325@s.whatsapp.net
+                    role: member
+                  - id: 6289668820960@s.whatsapp.net
+                    role: member
+                  - id: 6288210661980@s.whatsapp.net
+                    role: member
+                  - id: 6283876854328@s.whatsapp.net
+                    role: member
+                  - id: 6282211260972@s.whatsapp.net
+                    role: member
+                  - id: 6282297319276@s.whatsapp.net
+                    role: member
+                  - id: 6282112547114@s.whatsapp.net
+                    role: member
+                  - id: 6285600830155@s.whatsapp.net
+                    role: member
+                  - id: 6281220404670@s.whatsapp.net
+                    role: member
+                  - id: 6285892210037@s.whatsapp.net
+                    role: member
+                  - id: 6287792052512@s.whatsapp.net
+                    role: member
+                  - id: 6285884989051@s.whatsapp.net
+                    role: member
+                  - id: 6281218838496@s.whatsapp.net
+                    role: member
+                  - id: 6281919950916@s.whatsapp.net
+                    role: member
+                  - id: 62859106558700@s.whatsapp.net
+                    role: member
+                  - id: 6281213564043@s.whatsapp.net
+                    role: member
+                  - id: 6285887526700@s.whatsapp.net
+                    role: member
+                  - id: 6281310687468@s.whatsapp.net
+                    role: member
+                  - id: 6289624463437@s.whatsapp.net
+                    role: member
+                  - id: 6281314121232@s.whatsapp.net
+                    role: member
+                  - id: 6285779201850@s.whatsapp.net
+                    role: member
+                  - id: 6282112604484@s.whatsapp.net
+                    role: member
+                  - id: 6281399492651@s.whatsapp.net
+                    role: member
+                  - id: 6281546092106@s.whatsapp.net
+                    role: member
+                  - id: 6288291385160@s.whatsapp.net
+                    role: member
+                  - id: 6287809007567@s.whatsapp.net
+                    role: admin
+                  - id: 6281328173781@s.whatsapp.net
+                    role: member
+                  - id: 6282387452386@s.whatsapp.net
+                    role: member
+                  - id: 6281315797737@s.whatsapp.net
+                    role: member
+                  - id: 6281297918845@s.whatsapp.net
+                    role: member
+                  - id: 628128566693@s.whatsapp.net
+                    role: member
+                  - id: 6285783790501@s.whatsapp.net
+                    role: member
+                  - id: 6282114484984@s.whatsapp.net
+                    role: member
+                  - id: 6281223661644@s.whatsapp.net
+                    role: member
+                  - id: 6281905057445@s.whatsapp.net
+                    role: member
+                  - id: 628561733611@s.whatsapp.net
+                    role: member
+                  - id: 6281398886165@s.whatsapp.net
+                    role: member
+                  - id: 6281217566656@s.whatsapp.net
+                    role: member
+                  - id: 6285880808021@s.whatsapp.net
+                    role: member
+                  - id: 6285782611555@s.whatsapp.net
+                    role: member
+                  - id: 6281311551321@s.whatsapp.net
+                    role: member
+                  - id: 6281385419640@s.whatsapp.net
+                    role: member
+                  - id: 6289637236986@s.whatsapp.net
+                    role: member
+                  - id: 6285742110848@s.whatsapp.net
+                    role: member
+                  - id: 6289666474846@s.whatsapp.net
+                    role: member
+                  - id: 6287871108708@s.whatsapp.net
+                    role: member
+                  - id: 6282233560091@s.whatsapp.net
+                    role: member
+                  - id: 628992159929@s.whatsapp.net
+                    role: member
+                  - id: 6281806000256@s.whatsapp.net
+                    role: member
+                  - id: 6281296144785@s.whatsapp.net
+                    role: member
+                  - id: 6281297139046@s.whatsapp.net
+                    role: member
+                  - id: 6285695898489@s.whatsapp.net
+                    role: member
+                  - id: 6289675392391@s.whatsapp.net
+                    role: member
+                  - id: 6289643649384@s.whatsapp.net
+                    role: member
+                  - id: 62895411869095@s.whatsapp.net
+                    role: member
+                  - id: 628977733924@s.whatsapp.net
+                    role: member
+                  - id: 6281289858828@s.whatsapp.net
+                    role: member
+                  - id: 628990822108@s.whatsapp.net
+                    role: member
+                  - id: 6285779111192@s.whatsapp.net
+                    role: member
+                  - id: 6281281210074@s.whatsapp.net
+                    role: member
+                  - id: 6288210939532@s.whatsapp.net
+                    role: member
+                  - id: 6281934632778@s.whatsapp.net
+                    role: member
+                  - id: 6287853920313@s.whatsapp.net
+                    role: member
+                  - id: 6281283829324@s.whatsapp.net
+                    role: member
+                  - id: 628128261064@s.whatsapp.net
+                    role: member
+  /api/metadata-groups:
+    get:
+      tags:
+      - GROUP
+      summary: GET Metadata Group
+      parameters:
+      - name: jid
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: 120363358206243368@g.us
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Powered-By:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              style: simple
+              explode: false
+              schema:
+                type: integer
+                example: 577
+            ETag:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: W/"241-gZnIudeifDVgn81oVTcTzkYKwJA"
+            Set-Cookie:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: "connect.sid=s%3Ayz63WBWzXpIFMLUAc7oefjLe19oGo6vR.AiNzi8sgpaLHDxii5x2ZmdzyDpw5YIx3tOLV32ijalw;\
+                  \ Path=/; Expires=Mon, 04 Nov 2024 15:52:52 GMT; HttpOnly"
+            Date:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: "Mon, 04 Nov 2024 15:51:52 GMT"
+            Connection:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                result:
+                  id: 120363358206243368@g.us
+                  subject: Develop WhatsApp Gateway
+                  subjectOwner: 6283840398931@s.whatsapp.net
+                  subjectTime: 1730574610
+                  size: 2
+                  creation: 1730574610
+                  owner: 6283840398931@s.whatsapp.net
+                  description: Tempat belajar rest api WhatsApp
+                  descriptionId: F4B7632EF0EA1877D51D9A794A9ABD04
+                  restrict: false
+                  announce: false
+                  isCommunity: false
+                  isCommunityAnnounce: false
+                  joinApprovalMode: false
+                  memberAddMode: true
+                  participants:
+                  - id: 6281328646069@s.whatsapp.net
+                    role: admin
+                  - id: 6283840398931@s.whatsapp.net
+                    role: superadmin
+  /api/sendmedia:
+    post:
+      tags:
+      - PRIVATE
+      summary: Send Media (Upload File)
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/api_sendmedia_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/sendsticker:
+    post:
+      tags:
+      - PRIVATE
+      summary: Send Sticker (URL)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sessions: session_1
+                target: "6283840398931"
+                packname: Zekais
+                author: b0t
+                url: https://i.postimg.cc/G2m1dtH5/cat.jpg
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/sendcontact:
+    post:
+      tags:
+      - PRIVATE
+      summary: Send Contact
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sessions: session_1
+                target: 628xxx
+                contact: 628yyy
+                contactName: Asep
+                anotherContact: 628zzz - Bambang
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/sendbutton:
+    post:
+      tags:
+      - PRIVATE
+      summary: Send Button
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sessions: session_1
+                target: 628xxx
+                message: Send Button
+                textFooter: Footer
+                urlButton: Google
+                responUrl: https://www.google.com/
+                callButton: Call Me
+                responCall: 628yyy
+                button:
+                - Button 1
+                - Button 2
+                - Button 3
+                btnMessage:
+                - Okeee 1
+                - Okee 2
+                - Okee 3
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/sendlocation:
+    post:
+      tags:
+      - PRIVATE
+      summary: Send Location
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sessions: session_1
+                target: 628xxx
+                long: "106.82760040044384"
+                lat: "-6.174065858237926"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/sendproduct:
+    post:
+      tags:
+      - PRIVATE
+      summary: Send Product (URL)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sessions: session_1
+                target: 628xxx
+                message: Product Body
+                title: Product Title
+                footer: Product Footer
+                owner: 628xxx
+                currency: IDR
+                price: "10000000"
+                salePrice: "2000000"
+                url: https://i.postimg.cc/G2m1dtH5/cat.jpg
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/session:
+    get:
+      tags:
+      - PRIVATE
+      summary: Find Session
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Powered-By:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              style: simple
+              explode: false
+              schema:
+                type: integer
+                example: 3172
+            ETag:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: W/"c64-JdlGgUiE2sRbxZTLNiKyWdo7G3s"
+            Date:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: "Sun, 03 Nov 2024 06:31:34 GMT"
+            Connection:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              style: simple
+              explode: false
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                - session_name: yantodev
+                  session_number: "6281328646069"
+                  status: CONNECTED
+                  createdAt: 2024-11-02T18:21:13.000Z
+                  updatedAt: 2024-11-02T18:21:13.000Z
+                  Histories:
+                  - id: 54
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 01:22:08
+                    caption: hallo
+                    response:
+                      key:
+                        id: BAE58AE00B5E6C3F
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: hallo
+                      messageTimestamp: "1730571726"
+                  - id: 55
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 01:37:56
+                    caption: Send Text
+                    response:
+                      key:
+                        id: BAE51BAB631F22A6
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: Send Text
+                      messageTimestamp: "1730572675"
+                  - id: 56
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 01:42:03
+                    caption: Send Text
+                    response:
+                      key:
+                        id: BAE52D046D3A467D
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: Send Text
+                      messageTimestamp: "1730572922"
+                  - id: 57
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 01:43:37
+                    caption: Send Text
+                    response:
+                      key:
+                        id: BAE5C9A32065522F
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: Send Text
+                      messageTimestamp: "1730573017"
+                  - id: 58
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 01:44:04
+                    caption: Send Text Group
+                    response:
+                      key:
+                        id: BAE5849E1B5C9BE9
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: Send Text Group
+                      messageTimestamp: "1730573043"
+                  - id: 59
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: MEDIA
+                    date: 03/11/24 01:50:08
+                    caption: "File : 2024-10-29_16-03.png, Caption : Send Media Upload\
+                      \ File"
+                  - id: 60
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 04:02:46
+                    caption: Send Text
+                    response:
+                      key:
+                        id: BAE53B29D4EEE556
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: Send Text
+                      messageTimestamp: "1730581366"
+                  - id: 61
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 04:07:10
+                    caption: Send Text
+                    response:
+                      key:
+                        id: BAE56589B8AA92BA
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: Send Text
+                      messageTimestamp: "1730581629"
+                  - id: 62
+                    session_name: yantodev
+                    target: 6283840398931@s.whatsapp.net
+                    type: TEXT
+                    date: 03/11/24 04:08:13
+                    caption: Send Text
+                    response:
+                      key:
+                        id: BAE5EA7987F7834D
+                        fromMe: true
+                        remoteJid: 6283840398931@s.whatsapp.net
+                      status: PENDING
+                      message:
+                        extendedTextMessage:
+                          text: Send Text
+                      messageTimestamp: "1730581692"
+components:
+  schemas:
+    api_sendmedia_body:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+        sessions:
+          type: string
+          example: "{{session}}"
+        target:
+          type: integer
+          example: 6283840398931
+        message:
+          type: string
+          example: Send Media Upload File
